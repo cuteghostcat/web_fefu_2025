@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Web Lab 1{% endblock %}</title>
+    <style>
+        body {
+            background-color: #2a1b3d; 
+            color: #e0d6ff; 
+            font-family: Arial, sans-serif;
+            font-size: 18px; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1c1230; 
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px; 
+        }
+        nav {
+            background-color: #3b2a5c;
+            padding: 10px;
+        }
+        nav a {
+            color: #e0d6ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #1c1230;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Lab 2025</h1>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'about' %}">О нас</a>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>© 2025, Лабораторная работа по Web-технологиям</p>
+    </footer>
+</body>
+</html>

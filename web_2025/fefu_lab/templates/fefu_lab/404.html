@@ -1,0 +1,11 @@
+{% extends 'fefu_lab/base.html' %}
+
+{% block title %}Ошибка 404{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1>404: Страница не найдена</h1>
+        <p>К сожалению, запрашиваемая страница не существует.</p>
+        <p><a href="{% url 'home' %}">Вернуться на главную</a></p>
+    </div>
+{% endblock %}
