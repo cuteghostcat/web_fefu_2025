@@ -1,0 +1,30 @@
+{% extends "fefu_lab/base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+{% block heading %}Регистрация пользователя{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error">
+                        {% for error in field.errors %}
+                            {{ error }}<br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    
+    <p style="margin-top: 20px; text-align: center;">
+        Уже есть аккаунт? <a href="/login/">Войти</a>
+    </p>
+</div>
+{% endblock %}
