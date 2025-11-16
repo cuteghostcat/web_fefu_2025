@@ -1,23 +1,12 @@
-{% extends "fefu_lab/base.html" %}
+{% extends 'fefu_lab/base.html' %}
 
-{% block title %}Информация о курсе{% endblock %}
-{% block heading %}Информация о курсе{% endblock %}
+{% block title %}Курс: {{ course.title }}{% endblock %}
 
 {% block content %}
-<div class="course-info">
-    <p><strong>Название:</strong> {{ name }}</p>
-    <p><strong>Продолжительность:</strong> {{ duration }} часов</p>
-    <p><strong>Описание:</strong> {{ description }}</p>
-    <p><strong>Преподаватель:</strong> {{ instructor }}</p>
-    <p><strong>Уровень:</strong> {{ level }}</p>
-</div>
-
-<div style="margin-top: 20px;">
-    <h3>Другие курсы:</h3>
-    <ul>
-        <li><a href="/course/python-basics/">Основы программирования на Python</a></li>
-        <li><a href="/course/web-security/">Веб-безопасность</a></li>
-        <li><a href="/course/network-defense/">Защита сетей</a></li>
-    </ul>
-</div>
+<h1>Курс: {{ course.title }}</h1>
+<p>Описание: {{ course.description }}</p>
+<p>Продолжительность: {{ course.duration }} часов</p>
+<p>Преподаватель: {% if course.instructor %}{{ course.instructor.full_name }}{% else %}Не назначен{% endif %}</p>
+<p>Уровень: {{ course.get_level_display }}</p>
+<a href="{% url 'enroll_course' course.slug %}">Записаться</a>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import UserProfile
+from .models import Student, Enrollment
 
 class FeedbackForm(forms.Form):
     name = forms.CharField(max_length=100, min_length=2, label='Имя')
@@ -41,3 +42,29 @@ class RegistrationForm(forms.Form):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=50, label='Логин')
     password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
+
+class StudentRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['first_name', 'last_name', 'email', 'birth_date', 'faculty']
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if Student.objects.filter(email=email).exists():
+            raise forms.ValidationError("Этот email уже зарегистрирован.")
+        return email
+
+class EnrollmentForm(forms.ModelForm):
+    student = forms.ModelChoiceField(
+        queryset=Student.objects.filter(is_active=True).order_by('last_name'),
+        label='Студент',
+        empty_label='Выберите студента'
+    )
+
+    class Meta:
+        model = Enrollment
+        fields = ['student', 'course']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['course'].widget = forms.HiddenInput()

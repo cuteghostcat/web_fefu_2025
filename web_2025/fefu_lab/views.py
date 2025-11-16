@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 
@@ -7,6 +7,8 @@ from django.http import HttpResponse, Http404
 from django.views import View
 from .forms import FeedbackForm, RegistrationForm, LoginForm
 from .models import UserProfile
+from .models import Student, Course, Instructor, Enrollment
+from .forms import StudentRegistrationForm, EnrollmentForm
 
 def about_page(request):
     #return HttpResponse("Это страница \"О нас\". здесь написано о нас в с ё")
@@ -15,8 +17,20 @@ def about_page(request):
 
 class HomeView(View):
     def get(self, request):
-        #return HttpResponse("Это есть главная страница. Самая главная страница на всём диком западе!")
-        return render(request, 'fefu_lab/home.html')
+        try:
+            total_students = Student.objects.filter(is_active=True).count()
+            total_courses = Course.objects.filter(is_active=True).count()
+            total_instructors = Instructor.objects.filter(is_active=True).count()
+            recent_courses = Course.objects.filter(is_active=True).order_by('-created_at')[:3]
+        except Exception as e:
+            raise Http404("Ошибка при загрузке данных: " + str(e))
+
+        return render(request, 'fefu_lab/home.html', {
+            'total_students': total_students,
+            'total_courses': total_courses,
+            'total_instructors': total_instructors,
+            'recent_courses': recent_courses
+        })
 
 
 def custom_404(request, exception):
@@ -24,31 +38,13 @@ def custom_404(request, exception):
     return render(request, 'fefu_lab/404.html', status=404)
 
 def student_profile(request, student_id):
-    if student_id in STUDENTS_DATA:
-        student_data = STUDENTS_DATA[student_id]
-        return render(request, 'fefu_lab/student_profile.html', {
-            'student_id': student_id,
-            'student_info': student_data['info'],
-            'faculty': student_data['faculty'],
-            'status': student_data['status'],
-            'year': student_data['year']
-        })
-    else:
-        raise Http404("Студент с таким ID не найден")
+    student = get_object_or_404(Student, pk=student_id)
+    return render(request, 'fefu_lab/student_detail.html', {'student': student})
 
 class CourseView(View):
     def get(self, request, course_slug):
-        if course_slug not in COURSES_DATA:
-            raise Http404("Курс не найден")
-        data = COURSES_DATA[course_slug]
-        return render(request, 'fefu_lab/course_detail.html', {
-            'course_slug': course_slug,
-            'name': data['name'],
-            'duration': data['duration'],
-            'description': data['description'],
-            'instructor': data['instructor'],
-            'level': data['level'],
-        })
+        course = get_object_or_404(Course, slug=course_slug)
+        return render(request, 'fefu_lab/course_detail.html', {'course': course})
 
 def feedback_view(request):
     if request.method == 'POST':
@@ -88,47 +84,42 @@ def login_view(request):
 def success_view(request):
     return render(request, 'fefu_lab/success.html')
 
-STUDENTS_DATA = {
-    1: {
-        'info': 'Иван Петров',
-        'faculty': 'Кибербезопасность',
-        'status': 'Активный',
-        'year': 3
-    },
-    2: {
-        'info': 'Мария Сидорова', 
-        'faculty': 'Информатика',
-        'status': 'Активный',
-        'year': 2
-    },
-    3: {
-        'info': 'Алексей Козлов',
-        'faculty': 'Программная инженерия', 
-        'status': 'Выпускник',
-        'year': 5
-    }
-}
+def register_student(request):
+    if request.method == 'POST':
+        form = StudentRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Или на профиль
+    else:
+        form = StudentRegistrationForm()
+    return render(request, 'fefu_lab/register.html', {'form': form})
 
-COURSES_DATA = {
-    'python-basics': {
-        'name': 'Основы программирования на Python',
-        'duration': 36,
-        'description': 'Базовый курс по программированию на языке Python для начинающих.',
-        'instructor': 'Доцент Петров И.С.',
-        'level': 'Начальный'
-    },
-    'web-security': {
-        'name': 'Веб-безопасность',
-        'duration': 48,
-        'description': 'Курс по защите веб-приложений от современных угроз.',
-        'instructor': 'Профессор Сидоров А.В.',
-        'level': 'Продвинутый'
-    },
-    'network-defense': {
-        'name': 'Защита сетей',
-        'duration': 42,
-        'description': 'Изучение методов и технологий защиты компьютерных сетей.',
-        'instructor': 'Доцент Козлова М.П.',
-        'level': 'Средний'
-    }
-}
+def enroll_course(request, course_slug):
+    course = get_object_or_404(Course, slug=course_slug)
+    
+    if request.method == 'POST':
+        form = EnrollmentForm(request.POST, initial={'course': course})
+        if form.is_valid():
+            enrollment = form.save(commit=False)
+            enrollment.course = course  # Устанавливаем курс
+            try:
+                enrollment.save()
+                messages.success(request, 'Запись на курс успешна!')
+                return redirect('enrollment_success')  # Перенаправление на success
+            except IntegrityError:
+                messages.error(request, 'Вы уже записаны на этот курс или произошла ошибка.')
+    else:
+        form = EnrollmentForm(initial={'course': course})
+    
+    return render(request, 'fefu_lab/enrollment.html', {'form': form, 'course': course})
+
+def enrollment_success(request):
+    return render(request, 'fefu_lab/enrollment_success.html')
+
+def student_list(request):
+    students = Student.objects.filter(is_active=True).order_by('last_name', 'first_name')
+    return render(request, 'fefu_lab/student_list.html', {'students': students})
+
+def course_list(request):
+    courses = Course.objects.filter(is_active=True).order_by('title')
+    return render(request, 'fefu_lab/course_list.html', {'courses': courses})

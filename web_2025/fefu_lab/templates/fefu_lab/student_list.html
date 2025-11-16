@@ -1,0 +1,32 @@
+{% extends 'fefu_lab/base.html' %}
+
+{% block title %}Список студентов{% endblock %}
+
+{% block content %}
+    <h1>Список студентов</h1>
+    
+    {% if students %}
+        <div class="info-grid">
+            {% for student in students %}
+                <div class="info-item">
+                    <h3>
+                        <a href="{% url 'student' student.pk %}">
+                            {{ student.full_name }}
+                        </a>
+                    </h3>
+                    <p><strong>Email:</strong> {{ student.email }}</p>
+                    <p><strong>Факультет:</strong> {{ student.get_faculty_display }}</p>
+                    <p><strong>Создан:</strong> {{ student.created_at|date:"d.m.Y" }}</p>
+                </div>
+            {% empty %}
+                <p>Студентов пока нет.</p>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Нет активных студентов.</p>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'home' %}" class="btn">На главную</a>
+    </div>
+{% endblock %}

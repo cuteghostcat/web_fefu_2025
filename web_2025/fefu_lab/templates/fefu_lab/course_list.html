@@ -1,0 +1,14 @@
+{% extends 'fefu_lab/base.html' %}
+{% block title %}Список курсов{% endblock %}
+{% block content %}
+    <h1>Доступные курсы</h1>
+    <div class="info-grid">
+        {% for course in courses %}
+            <div class="info-item">
+                <h3><a href="{% url 'course' course.slug %}">{{ course.title }}</a></h3>
+                <p><strong>Преподаватель:</strong> {{ course.instructor.full_name|default:"Не назначен" }}</p>
+                <p><strong>Длительность:</strong> {{ course.duration }} ч.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
