@@ -4,5 +4,5 @@
 
 # Web Lab 3: DB, models
 
-# Web Lab 4.
+# Web Lab 4: Authentication, Authorization, Registration
 

@@ -1,7 +1,10 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import UserProfile
-from .models import Student, Enrollment
+
+from .models import UserProfile, Enrollment, Course
+
 
 class FeedbackForm(forms.Form):
     name = forms.CharField(max_length=100, min_length=2, label='Имя')
@@ -16,55 +19,64 @@ class FeedbackForm(forms.Form):
         return name.strip()
 
 
-class RegistrationForm(forms.Form):
-    username = forms.CharField(max_length=50, label='Логин')
-    email = forms.EmailField(label='Email')
-    password = forms.CharField(widget=forms.PasswordInput, min_length=8, label='Пароль')
-    password_confirm = forms.CharField(widget=forms.PasswordInput, label='Подтверждение пароля')
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True, label='Email')
+    first_name = forms.CharField(max_length=30, required=True, label='Имя')
+    last_name = forms.CharField(max_length=30, required=True, label='Фамилия')
+    phone = forms.CharField(max_length=20, required=False, label='Телефон')
+    faculty = forms.CharField(max_length=100, required=False, label='Факультет')
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password = cleaned_data.get('password')
-        password_confirm = cleaned_data.get('password_confirm')
-        if password != password_confirm:
-            raise ValidationError("Пароли не совпадают!")
-
-        username = cleaned_data.get('username')
-        email = cleaned_data.get('email')
-        if username and UserProfile.objects.filter(username=username).exists():
-            self.add_error('username', 'Логин уже занят')
-        if email and UserProfile.objects.filter(email=email).exists():
-            self.add_error('email', 'Email уже зарегистрирован')
-
-        return cleaned_data
-
-
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=50, label='Логин')
-    password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
-
-class StudentRegistrationForm(forms.ModelForm):
     class Meta:
-        model = Student
-        fields = ['first_name', 'last_name', 'email', 'birth_date', 'faculty']
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email', 'phone', 'faculty', 'password1', 'password2')
 
     def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if Student.objects.filter(email=email).exists():
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).exists():
             raise forms.ValidationError("Этот email уже зарегистрирован.")
         return email
 
-class EnrollmentForm(forms.ModelForm):
-    student = forms.ModelChoiceField(
-        queryset=Student.objects.filter(is_active=True).order_by('last_name'),
-        label='Студент',
-        empty_label='Выберите студента'
-    )
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        if commit:
+            user.save()
+            profile = user.profile
+            profile.phone = self.cleaned_data.get('phone', '')
+            profile.faculty = self.cleaned_data.get('faculty', '')
+            profile.save()
+        return user
 
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(label='Email')
+    password = forms.CharField(widget=forms.PasswordInput, label='Пароль')
+
+
+class EnrollmentForm(forms.ModelForm):
     class Meta:
         model = Enrollment
-        fields = ['student', 'course']
+        fields = ['course']
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, user=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['course'].widget = forms.HiddenInput()
+        self.user = user
+        if 'course' in self.fields:
+            self.fields['course'].widget = forms.HiddenInput()
+
+    def clean(self):
+        cleaned_data = super().clean()
+        course = cleaned_data.get('course')
+        if course and self.user:
+            if Enrollment.objects.filter(student=self.user, course=course).exists():
+                raise forms.ValidationError("Вы уже записаны на этот курс!")
+        return cleaned_data
+
+    def save(self, commit=True):
+        enrollment = super().save(commit=False)
+        enrollment.student = self.user
+        if commit:
+            enrollment.save()
+        return enrollment

@@ -1,141 +1,152 @@
 from django.core.management.base import BaseCommand
-from django.utils import timezone
-from fefu_lab.models import Student, Instructor, Course, Enrollment
-from datetime import date, timedelta
+from django.contrib.auth.models import User
+from fefu_lab.models import UserProfile, Instructor, Course, Enrollment
+from datetime import date
+
 
 class Command(BaseCommand):
-    help = 'Заполняет базу данных тестовыми данными'
-    
+    help = 'Заполняет базу данных тестовыми данными (обновлено под лабу №4)'
+
     def handle(self, *args, **options):
-        self.stdout.write('Создание тестовых данных...')
-        
+        self.stdout.write('Очистка старых данных...')
         Enrollment.objects.all().delete()
         Course.objects.all().delete()
-        Student.objects.all().delete()
         Instructor.objects.all().delete()
-        
-        instructors = [
-            Instructor(
-                first_name='Иван',
-                last_name='Петров',
-                email='i.petrov@fefu.ru',
-                specialization='Кибербезопасность',
-                degree='Кандидат технических наук'
-            ),
-            Instructor(
-                first_name='Мария',
-                last_name='Сидорова',
-                email='m.sidorova@fefu.ru',
-                specialization='Веб-разработка',
-                degree='Доктор технических наук'
-            ),
-            Instructor(
-                first_name='Алексей',
-                last_name='Козлов',
-                email='a.kozlov@fefu.ru',
-                specialization='Сетевые технологии'
-            ),
+        UserProfile.objects.all().delete()
+        User.objects.filter(is_staff=False, is_superuser=False).delete()  
+
+        self.stdout.write('Создание преподавателей...')
+
+        teacher1 = User.objects.create_user(
+            username='i.petrov',
+            email='i.petrov@fefu.ru',
+            password='teacher123',
+            first_name='Иван',
+            last_name='Петров'
+        )
+        Instructor.objects.create(
+            user=teacher1,
+            specialization='Кибербезопасность',
+            degree='Кандидат технических наук'
+        )
+
+        teacher2 = User.objects.create_user(
+            username='m.sidorova',
+            email='m.sidorova@fefu.ru',
+            password='teacher123',
+            first_name='Мария',
+            last_name='Сидорова'
+        )
+        Instructor.objects.create(
+            user=teacher2,
+            specialization='Веб-разработка',
+            degree='Доктор технических наук'
+        )
+
+        teacher3 = User.objects.create_user(
+            username='a.kozlov',
+            email='a.kozlov@fefu.ru',
+            password='teacher123',
+            first_name='Алексей',
+            last_name='Козлов'
+        )
+        Instructor.objects.create(
+            user=teacher3,
+            specialization='Сетевые технологии'
+        )
+
+        instructors = [teacher1, teacher2, teacher3]
+
+        self.stdout.write('Создание студентов...')
+
+        student_data = [
+            ('Анна', 'Иванова', 'anna.ivanova@fefu.ru', date(2000, 5, 15), 'CS'),
+            ('Дмитрий', 'Смирнов', 'dmitry.smirnov@fefu.ru', date(1999, 8, 22), 'SE'),
+            ('Екатерина', 'Попова', 'ekaterina.popova@fefu.ru', date(2001, 3, 10), 'IT'),
+            ('Михаил', 'Васильев', 'mikhail.vasilyev@fefu.ru', date(2000, 11, 5), 'DS'),
+            ('Ольга', 'Новикова', 'olga.novikova@fefu.ru', date(1999, 12, 30), 'WEB'),
         ]
-        
-        for instructor in instructors:
-            instructor.save()
-        
-        students = [
-            Student(
-                first_name='Анна',
-                last_name='Иванова',
-                email='anna.ivanova@fefu.ru',
-                birth_date=date(2000, 5, 15),
-                faculty='CS'
-            ),
-            Student(
-                first_name='Дмитрий',
-                last_name='Смирнов',
-                email='dmitry.smirnov@fefu.ru',
-                birth_date=date(1999, 8, 22),
-                faculty='SE'
-            ),
-            Student(
-                first_name='Екатерина',
-                last_name='Попова',
-                email='ekaterina.popova@fefu.ru',
-                birth_date=date(2001, 3, 10),
-                faculty='IT'
-            ),
-            Student(
-                first_name='Михаил',
-                last_name='Васильев',
-                email='mikhail.vasilyev@fefu.ru',
-                birth_date=date(2000, 11, 5),
-                faculty='DS'
-            ),
-            Student(
-                first_name='Ольга',
-                last_name='Новикова',
-                email='olga.novikova@fefu.ru',
-                birth_date=date(1999, 12, 30),
-                faculty='WEB'
-            ),
-        ]
-        
-        for student in students:
-            student.save()
-        
+
+        students = []
+        for first_name, last_name, email, birth_date, faculty in student_data:
+            user = User.objects.create_user(
+                username=email.split('@')[0],
+                email=email,
+                password='student123',
+                first_name=first_name,
+                last_name=last_name
+            )
+            profile, created = UserProfile.objects.get_or_create(user=user)
+            profile.birth_date = birth_date
+            profile.faculty = faculty
+            profile.role = 'STUDENT'
+            profile.save()
+            students.append(user)
+
+        self.stdout.write('Создание курсов...')
+
         courses = [
             Course(
                 title='Основы Python',
                 slug='python-basics',
-                description='Базовый курс по программированию на языке Python. Изучение синтаксиса, структур данных и основ ООП.',
+                description='Базовый курс по программированию на языке Python.',
                 duration=36,
-                instructor=instructors[0],
+                instructor=Instructor.objects.get(user=teacher1),
                 level='BEGINNER',
             ),
             Course(
                 title='Веб-безопасность',
                 slug='web-security',
-                description='Продвинутый курс по защите веб-приложений. SQL-инъекции, XSS, CSRF и другие уязвимости.',
+                description='Продвинутый курс по защите веб-приложений.',
                 duration=48,
-                instructor=instructors[0],
+                instructor=Instructor.objects.get(user=teacher1),
                 level='ADVANCED',
             ),
             Course(
                 title='Современный JavaScript',
                 slug='modern-javascript',
-                description='Изучение современных возможностей JavaScript: ES6+, асинхронное программирование, фреймворки.',
+                description='ES6+, асинхронность, фреймворки.',
                 duration=42,
-                instructor=instructors[1],
+                instructor=Instructor.objects.get(user=teacher2),
                 level='INTERMEDIATE',
             ),
             Course(
                 title='Защита сетей',
                 slug='network-defense',
-                description='Курс по защите компьютерных сетей. Firewalls, IDS/IPS, VPN и методы атак на сети.',
+                description='Firewalls, IDS/IPS, VPN, атаки.',
                 duration=40,
-                instructor=instructors[2],
+                instructor=Instructor.objects.get(user=teacher3),
                 level='ADVANCED',
             ),
         ]
-        
+
         for course in courses:
             course.save()
-        
+
+        self.stdout.write('Создание записей на курсы...')
+
         enrollments = [
-            Enrollment(student=students[0], course=courses[0], status='ACTIVE'),
-            Enrollment(student=students[0], course=courses[1], status='ACTIVE'),
-            Enrollment(student=students[1], course=courses[0], status='ACTIVE'),
-            Enrollment(student=students[1], course=courses[2], status='ACTIVE'),
-            Enrollment(student=students[2], course=courses[0], status='ACTIVE'),
-            Enrollment(student=students[3], course=courses[3], status='ACTIVE'),
-            Enrollment(student=students[4], course=courses[2], status='ACTIVE'),
+            (students[0], courses[0]),  
+            (students[0], courses[1]),  
+            (students[1], courses[0]),  
+            (students[1], courses[2]),  
+            (students[2], courses[0]),  
+            (students[3], courses[3]),  
+            (students[4], courses[2]),  
         ]
-        
-        for enrollment in enrollments:
-            enrollment.save()
-        
-        self.stdout.write(
-            self.style.SUCCESS(
-                f'Успешно создано: {len(instructors)} преподавателей, '
-                f'{len(students)} студентов, {len(courses)} курсов, '
-                f'{len(enrollments)} записей на курсы'
+
+        for student_user, course in enrollments:
+            Enrollment.objects.create(
+                student=student_user,
+                course=course,
+                status='ACTIVE'
             )
-        )
+
+        self.stdout.write(self.style.SUCCESS(
+            f'Готово! Создано:\n'
+            f'   • {len(instructors)} преподавателей\n'
+            f'   • {len(students)} студентов\n'
+            f'   • {len(courses)} курсов\n'
+            f'   • {len(enrollments)} записей на курсы\n'
+            f'Логин: любой email, пароль: student123 / teacher123'
+        ))

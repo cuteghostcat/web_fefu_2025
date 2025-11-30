@@ -1,0 +1,29 @@
+{% extends 'fefu_lab/base.html' %}
+{% block title %}Вход в систему{% endblock %}
+{% block heading %}Вход в аккаунт{% endblock %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 50px auto; background: rgba(120, 70, 180, 0.4); padding: 40px; border-radius: 16px; text-align: center;">
+    <h2 style="color: #e0d0ff; margin-bottom: 30px;">Добро пожаловать!</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <input type="email" name="email" placeholder="Email" required
+                   style="width: 100%; padding: 14px; font-size: 18px; border: none; border-radius: 8px; margin-bottom: 15px;">
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Пароль" required
+                   style="width: 100%; padding: 14px; font-size: 18px; border: none; border-radius: 8px; margin-bottom: 20px;">
+        </p>
+        <button type="submit"
+                style="background: #9775fa; color: white; padding: 14px 40px; font-size: 20px; border: none; border-radius: 8px; cursor: pointer;">
+            Войти
+        </button>
+    </form>
+
+    <p style="margin-top: 25px;">
+        Нет аккаунта? <a href="{% url 'register' %}" style="color: #51cf66; font-weight: bold;">Зарегистрироваться</a>
+    </p>
+</div>
+{% endblock %}

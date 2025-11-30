@@ -1,0 +1,32 @@
+{% extends 'fefu_lab/base.html' %}
+{% block title %}Кабинет преподавателя{% endblock %}
+{% block heading %}Мои курсы{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin: 40px 0;">
+    <h2>Здравствуйте, {{ user.first_name }} {{ user.last_name }}!</h2>
+    <p>Роль: <strong style="color: #ff6b6b;">Преподаватель</strong></p>
+</div>
+
+{% if courses %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 25px;">
+        {% for course in courses %}
+            <div style="background: rgba(255, 107, 107, 0.2); padding: 25px; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                <h3>{{ course.title }}</h3>
+                <p><strong>Уровень:</strong> {{ course.get_level_display }}</p>
+                <p><strong>Всего студентов:</strong> {{ course.total_enrollments }}</p>
+                <p><strong>Активных:</strong> 
+                    <span style="color: #51cf66; font-weight: bold;">{{ course.active_enrollments }}</span>
+                </p>
+                <a href="{% url 'course' course.slug %}" style="color: #ff6b6b; font-weight: bold;">
+                    Перейти к курсу
+                </a>
+            </div>
+        {% empty %}
+            <p style="text-align: center; color: #aaa; font-size: 20px;">У вас пока нет курсов.</p>
+        {% endfor %}
+    </div>
+{% else %}
+    <p style="text-align: center; color: #aaa; font-size: 20px;">У вас пока нет курсов.</p>
+{% endif %}
+{% endblock %}
