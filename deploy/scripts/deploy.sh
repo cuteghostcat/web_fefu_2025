@@ -50,6 +50,7 @@ sudo ln -sf /etc/nginx/sites-available/fefu_lab.conf /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
 
 # === 6. Миграции, загрузка данных, статика ===
+cd "$PROJECT_DIR"
 source $VENV_DIR/bin/activate
 python manage.py migrate
 python manage.py loaddata data.json || echo "data.json не найден — пропускаем"

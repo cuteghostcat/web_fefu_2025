@@ -5,7 +5,7 @@ After=network.target postgresql.service
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=/var/www/fefu_lab
+WorkingDirectory=/var/www/fefu_lab/web_fefu_2025/web_2025
 Environment="DJANGO_ENV=production"
 Environment="PATH=/var/www/fefu_lab/venv/bin"
 Environment="DJANGO_SECRET_KEY=+2awms*v^pzep%w#+2_2%0m$^eo&8#9tkmj329kzujb@35g6oo"
@@ -15,8 +15,8 @@ Environment="DB_PASSWORD=ghostpass"
 Environment="DB_HOST=localhost"
 Environment="DB_PORT=5432"
 
-ExecStart=/var/www/fefu_lab/venv/bin/gunicorn \
-    --config /var/www/fefu_lab/deploy/gunicorn/config.py \
+ExecStart=/var/www/fefu_lab/web_fefu_2025/venv/bin/gunicorn \
+    --config /var/www/fefu_lab/web_fefu_2025/deploy/gunicorn/config.py \
     web_2025.wsgi:application  
 
 Restart=always
