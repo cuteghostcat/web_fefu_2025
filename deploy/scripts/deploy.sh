@@ -6,7 +6,7 @@ echo "=== Начало деплоя FEFU Lab ==="
 
 # === Конфигурируемые переменные ===
 REPO_URL="https://github.com/cuteghostcat/web_fefu_2025.git"
-PROJECT_DIR="/var/www/fefu_lab"
+PROJECT_DIR="/var/www/fefu_lab/web_fefu_2025"
 VENV_DIR="$PROJECT_DIR/venv"
 DB_PASSWORD="ghostpass"  # Лучше потом убрать и вводить вручную, но для лабы можно оставить
 
