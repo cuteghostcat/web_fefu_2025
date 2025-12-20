@@ -1,0 +1,1148 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-11-30T13:17:20.411Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "i.petrov",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"\\u0418\\u0432\\u0430\\u043d \\u041f\\u0435\\u0442\\u0440\\u043e\\u0432 (\\u041f\\u0440\\u0435\\u043f\\u043e\\u0434\\u0430\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c)\", \"fields\": [\"\\u0420\\u043e\\u043b\\u044c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-11-30T13:17:35.089Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "m.sidorova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"\\u041c\\u0430\\u0440\\u0438\\u044f \\u0421\\u0438\\u0434\\u043e\\u0440\\u043e\\u0432\\u0430 (\\u041f\\u0440\\u0435\\u043f\\u043e\\u0434\\u0430\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c)\", \"fields\": [\"\\u0420\\u043e\\u043b\\u044c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-11-30T13:17:46.031Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "a.kozlov",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"\\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0439 \\u041a\\u043e\\u0437\\u043b\\u043e\\u0432 (\\u041f\\u0440\\u0435\\u043f\\u043e\\u0434\\u0430\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c)\", \"fields\": [\"\\u0420\\u043e\\u043b\\u044c\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-11-30T13:39:01.172Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "hp",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"hp (\\u0410\\u0434\\u043c\\u0438\\u043d\\u0438\\u0441\\u0442\\u0440\\u0430\\u0442\\u043e\\u0440)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-11-30T13:39:47.368Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "admin@mail.com",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-11-30T13:40:32.568Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "admin@mail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"admin@mail.com (\\u0410\\u0434\\u043c\\u0438\\u043d\\u0438\\u0441\\u0442\\u0440\\u0430\\u0442\\u043e\\u0440)\", \"fields\": [\"\\u0420\\u043e\\u043b\\u044c\", \"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\", \"\\u0410\\u0432\\u0430\\u0442\\u0430\\u0440\", \"\\u041e \\u0441\\u0435\\u0431\\u0435\", \"\\u0414\\u0430\\u0442\\u0430 \\u0440\\u043e\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-11-30T13:41:13.189Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "a.admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\", \"Email address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-11-30T13:46:54.238Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "a.admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-11-30T13:49:24.706Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "a.admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-11-30T13:50:59.000Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "a.admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-11-30T14:03:20.175Z",
+    "user": 10,
+    "content_type": 4,
+    "object_id": "10",
+    "object_repr": "a.admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0440\\u043e\\u0444\\u0438\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f\", \"object\": \"admin nimda (\\u0410\\u0434\\u043c\\u0438\\u043d\\u0438\\u0441\\u0442\\u0440\\u0430\\u0442\\u043e\\u0440)\", \"fields\": [\"\\u0410\\u0432\\u0430\\u0442\\u0430\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-11-30T14:51:57.040Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "11",
+    "object_repr": "r.schwarzer",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-11-30T15:13:10.073Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "i.petrov → Веб-безопасность",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Профиль пользователя",
+    "content_type": 7,
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Профиль пользователя",
+    "content_type": 7,
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Профиль пользователя",
+    "content_type": 7,
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Профиль пользователя",
+    "content_type": 7,
+    "codename": "view_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Преподаватель",
+    "content_type": 8,
+    "codename": "add_instructor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Преподаватель",
+    "content_type": 8,
+    "codename": "change_instructor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Преподаватель",
+    "content_type": 8,
+    "codename": "delete_instructor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Преподаватель",
+    "content_type": 8,
+    "codename": "view_instructor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Курс",
+    "content_type": 9,
+    "codename": "add_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Курс",
+    "content_type": 9,
+    "codename": "change_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Курс",
+    "content_type": 9,
+    "codename": "delete_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Курс",
+    "content_type": 9,
+    "codename": "view_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Запись на курс",
+    "content_type": 10,
+    "codename": "add_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Запись на курс",
+    "content_type": 10,
+    "codename": "change_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Запись на курс",
+    "content_type": 10,
+    "codename": "delete_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Запись на курс",
+    "content_type": 10,
+    "codename": "view_enrollment"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$dmRpcTmvIy2JA8sHA0wWPW$Jjn2cROf5aay2xdzrPcTjj5FPPYE83bk4BVKjCK1aE8=",
+    "last_login": "2025-11-30T15:13:00.705Z",
+    "is_superuser": true,
+    "username": "hp",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:37Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$feGgBDn3y97XIOBXyX9mtU$UuSFf0oOna4PORgLotBbgyy5fazmeiMMprVDfYacm7A=",
+    "last_login": "2025-11-30T15:11:54.743Z",
+    "is_superuser": false,
+    "username": "i.petrov",
+    "first_name": "Иван",
+    "last_name": "Петров",
+    "email": "i.petrov@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:42Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ejUMkuSFKTOiHcygPNEdIP$iRVv0gfh6tSrM8r5oroPwQw8uG9e2KJcAYKWLL2tVzk=",
+    "last_login": "2025-11-30T14:01:48.288Z",
+    "is_superuser": false,
+    "username": "m.sidorova",
+    "first_name": "Мария",
+    "last_name": "Сидорова",
+    "email": "m.sidorova@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:42Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ZUTgPG07s4HNNAtqsWK6m1$eee+MbTqBb8NdasN+A96+Ob5CThL7wUK834eJoHAHBk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "a.kozlov",
+    "first_name": "Алексей",
+    "last_name": "Козлов",
+    "email": "a.kozlov@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:43Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$6GhZtuz3O5s7eaPemfAE9U$EoWB6NO4LULuLos/ClN1xrm6ozSgdepSA/iSNCrG7XQ=",
+    "last_login": "2025-11-30T14:15:17.601Z",
+    "is_superuser": false,
+    "username": "anna.ivanova",
+    "first_name": "Анна",
+    "last_name": "Иванова",
+    "email": "anna.ivanova@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:43.482Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$F4Kt0Vb6uYy49lBq8qtDZD$3F7gR6ZkAlcIZfYZw11csoVaYUgOPUytZgZptjMGFe4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dmitry.smirnov",
+    "first_name": "Дмитрий",
+    "last_name": "Смирнов",
+    "email": "dmitry.smirnov@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:43.751Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$r9gL4BpG5wDcCUECPxdiyR$o2BBYPsEbOC3D21qvgsLXVFTIx/lW0a6Fcm0IrxrUhU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ekaterina.popova",
+    "first_name": "Екатерина",
+    "last_name": "Попова",
+    "email": "ekaterina.popova@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:44.014Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$5KojshwUhPwnGM7ISXzkkh$a0RGba9b6cRqhnAXf/lOS/BhLCoSFhbfbbPkz4/KWuM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mikhail.vasilyev",
+    "first_name": "Михаил",
+    "last_name": "Васильев",
+    "email": "mikhail.vasilyev@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:44.286Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$fTGsnGlK4xgIZlx0iTXL03$O1yrUdnxBl4dfiDaXXNVr/mGcqncHGevYnaC5m8psCU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "olga.novikova",
+    "first_name": "Ольга",
+    "last_name": "Новикова",
+    "email": "olga.novikova@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T11:37:44.558Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ATb4yNeR7HA3GzOP4wW4gn$UQg/eLYrmLeOaRLGB7N6uhVSk3O2NrJRqbIvUaHs5Rs=",
+    "last_login": "2025-11-30T15:04:16.218Z",
+    "is_superuser": true,
+    "username": "a.admin",
+    "first_name": "admin",
+    "last_name": "nimda",
+    "email": "admin@mail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-30T13:39:47Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$UGTObfJcnZDBdjuAhgh8AT$LAETLZ1H/T3g7qnKa4zL0NgR3TNnId9ihvPxj7of9AM=",
+    "last_login": "2025-11-30T15:09:53.657Z",
+    "is_superuser": false,
+    "username": "r.schwarzer",
+    "first_name": "Рин",
+    "last_name": "Шварцер",
+    "email": "rean.schwarzer@fefu.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-30T14:53:40.396Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "fefu_lab",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "fefu_lab",
+    "model": "instructor"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "fefu_lab",
+    "model": "course"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "fefu_lab",
+    "model": "enrollment"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1hyo282oqul8jqzs89c6bp30af6fbqh0",
+  "fields": {
+    "session_data": "e30:1vPign:L5TAHCvlozcmzDZwhpm55KqLZQm2hS6J3Vp9gYv3XGI",
+    "expire_date": "2025-12-14T14:46:13.974Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "role": "TEACHER",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": null,
+    "faculty": "",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:42.936Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "role": "TEACHER",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": null,
+    "faculty": "",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:43.210Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "role": "TEACHER",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": null,
+    "faculty": "",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:43.473Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "role": "STUDENT",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": "2000-05-15",
+    "faculty": "CS",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:43.741Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": 6,
+    "role": "STUDENT",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": "1999-08-22",
+    "faculty": "SE",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.004Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": 7,
+    "role": "STUDENT",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": "2001-03-10",
+    "faculty": "IT",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.269Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 8,
+  "fields": {
+    "user": 8,
+    "role": "STUDENT",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": "2000-11-05",
+    "faculty": "DS",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.548Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 9,
+  "fields": {
+    "user": 9,
+    "role": "STUDENT",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": "1999-12-30",
+    "faculty": "WEB",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.809Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 10,
+  "fields": {
+    "user": 1,
+    "role": "ADMIN",
+    "phone": "",
+    "avatar": "",
+    "bio": "",
+    "birth_date": null,
+    "faculty": "",
+    "is_active": true,
+    "created_at": "2025-11-30T13:39:01.168Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 11,
+  "fields": {
+    "user": 10,
+    "role": "ADMIN",
+    "phone": "+71234567890",
+    "avatar": "",
+    "bio": "admin",
+    "birth_date": "2025-11-30",
+    "faculty": "",
+    "is_active": true,
+    "created_at": "2025-11-30T13:39:47.367Z"
+  }
+},
+{
+  "model": "fefu_lab.userprofile",
+  "pk": 13,
+  "fields": {
+    "user": 12,
+    "role": "STUDENT",
+    "phone": "+72061231212",
+    "avatar": "",
+    "bio": "",
+    "birth_date": null,
+    "faculty": "Кибербезопасность",
+    "is_active": true,
+    "created_at": "2025-11-30T14:53:40.715Z"
+  }
+},
+{
+  "model": "fefu_lab.instructor",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "specialization": "Кибербезопасность",
+    "degree": "Кандидат технических наук",
+    "is_active": true
+  }
+},
+{
+  "model": "fefu_lab.instructor",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "specialization": "Веб-разработка",
+    "degree": "Доктор технических наук",
+    "is_active": true
+  }
+},
+{
+  "model": "fefu_lab.instructor",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "specialization": "Сетевые технологии",
+    "degree": "",
+    "is_active": true
+  }
+},
+{
+  "model": "fefu_lab.course",
+  "pk": 1,
+  "fields": {
+    "title": "Основы Python",
+    "slug": "python-basics",
+    "description": "Базовый курс по программированию на языке Python.",
+    "duration": 36,
+    "instructor": 1,
+    "level": "BEGINNER",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.823Z"
+  }
+},
+{
+  "model": "fefu_lab.course",
+  "pk": 2,
+  "fields": {
+    "title": "Веб-безопасность",
+    "slug": "web-security",
+    "description": "Продвинутый курс по защите веб-приложений.",
+    "duration": 48,
+    "instructor": 1,
+    "level": "ADVANCED",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.827Z"
+  }
+},
+{
+  "model": "fefu_lab.course",
+  "pk": 3,
+  "fields": {
+    "title": "Современный JavaScript",
+    "slug": "modern-javascript",
+    "description": "ES6+, асинхронность, фреймворки.",
+    "duration": 42,
+    "instructor": 2,
+    "level": "INTERMEDIATE",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.830Z"
+  }
+},
+{
+  "model": "fefu_lab.course",
+  "pk": 4,
+  "fields": {
+    "title": "Защита сетей",
+    "slug": "network-defense",
+    "description": "Firewalls, IDS/IPS, VPN, атаки.",
+    "duration": 40,
+    "instructor": 3,
+    "level": "ADVANCED",
+    "is_active": true,
+    "created_at": "2025-11-30T11:37:44.834Z"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 1,
+  "fields": {
+    "student": 5,
+    "course": 1,
+    "date_enrolled": "2025-11-30T11:37:44.837Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 2,
+  "fields": {
+    "student": 5,
+    "course": 2,
+    "date_enrolled": "2025-11-30T11:37:44.843Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 3,
+  "fields": {
+    "student": 6,
+    "course": 1,
+    "date_enrolled": "2025-11-30T11:37:44.854Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 4,
+  "fields": {
+    "student": 6,
+    "course": 3,
+    "date_enrolled": "2025-11-30T11:37:44.857Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 5,
+  "fields": {
+    "student": 7,
+    "course": 1,
+    "date_enrolled": "2025-11-30T11:37:44.861Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 6,
+  "fields": {
+    "student": 8,
+    "course": 4,
+    "date_enrolled": "2025-11-30T11:37:44.864Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 7,
+  "fields": {
+    "student": 9,
+    "course": 3,
+    "date_enrolled": "2025-11-30T11:37:44.868Z",
+    "status": "ACTIVE"
+  }
+},
+{
+  "model": "fefu_lab.enrollment",
+  "pk": 8,
+  "fields": {
+    "student": 12,
+    "course": 2,
+    "date_enrolled": "2025-11-30T15:10:41.440Z",
+    "status": "ACTIVE"
+  }
+}
+]
