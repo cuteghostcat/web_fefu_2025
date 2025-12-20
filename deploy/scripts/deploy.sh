@@ -8,6 +8,7 @@ echo "=== Начало деплоя FEFU Lab ==="
 REPO_URL="https://github.com/cuteghostcat/web_fefu_2025.git"
 PROJECT_DIR="/var/www/fefu_lab/web_fefu_2025"
 VENV_DIR="$PROJECT_DIR/venv"
+DJANGO_DIR="$PROJECT_DIR/web_2025"
 DB_PASSWORD="ghostpass"  # Лучше потом убрать и вводить вручную, но для лабы можно оставить
 
 # === 1. Клонируем или обновляем репозиторий ===
@@ -39,7 +40,7 @@ deactivate
 # === 4. Логи и права ===
 sudo mkdir -p /var/log/gunicorn
 sudo chown -R www-data:www-data /var/log/gunicorn
-sudo mkdir -p $PROJECT_DIR/static $PROJECT_DIR/media
+sudo mkdir -p $DJANGO_DIR/static $DJANGO_DIR/media $DJANGO_DIR/staticfiles
 sudo chown -R www-data:www-data $PROJECT_DIR
 sudo chmod -R 755 $PROJECT_DIR
 
@@ -50,7 +51,7 @@ sudo ln -sf /etc/nginx/sites-available/fefu_lab.conf /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
 
 # === 6. Миграции, загрузка данных, статика ===
-cd "$PROJECT_DIR/web_2025"
+cd "$DJANGO_DIR/static"
 source $VENV_DIR/bin/activate
 python manage.py migrate
 python manage.py loaddata data.json || echo "data.json не найден — пропускаем"

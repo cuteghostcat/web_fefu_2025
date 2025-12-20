@@ -7,7 +7,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/var/www/fefu_lab/web_fefu_2025/web_2025
 Environment="DJANGO_ENV=production"
-Environment="PATH=/var/www/fefu_lab/venv/bin"
+Environment="PATH=/var/www/fefu_lab/web_fefu_2025/venv/bin"
 Environment="DJANGO_SECRET_KEY=+2awms*v^pzep%w#+2_2%0m$^eo&8#9tkmj329kzujb@35g6oo"
 Environment="DB_NAME=fefu_lab_db"
 Environment="DB_USER=fefu_user"
