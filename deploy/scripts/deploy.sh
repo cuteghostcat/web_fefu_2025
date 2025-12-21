@@ -53,8 +53,10 @@ sudo rm -f /etc/nginx/sites-enabled/default
 # === 6. Миграции, загрузка данных, статика ===
 cd "$DJANGO_DIR"
 source $VENV_DIR/bin/activate
+python manage.py dumpdata --indent 2 --output /tmp/data1.json
 python manage.py migrate
-python manage.py loaddata data.json || echo "data.json не найден — пропускаем"
+#python manage.py loaddata data.json || echo "data.json не найден — пропускаем"
+python manage.py loaddata /tmp/data1.json || echo "data1.json не найден — пропускаем"
 python manage.py collectstatic --noinput
 deactivate
 
