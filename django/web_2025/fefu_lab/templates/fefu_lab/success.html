@@ -1,0 +1,12 @@
+{% extends "fefu_lab/base.html" %}
+
+{% block title %}Успех{% endblock %}
+{% block heading %}Операция успешна!{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px;">
+    <h2 class="success-msg">Ваша операция выполнена успешно!</h2>
+    <p>Спасибо за использование нашего приложения.</p>
+    <a href="{% url 'home' %}" class="button">Вернуться на главную</a>
+</div>
+{% endblock %}

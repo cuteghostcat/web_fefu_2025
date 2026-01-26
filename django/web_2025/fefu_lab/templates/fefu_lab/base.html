@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fefu Lab - {% block title %}Главная{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'fefu_lab/css/style.css' %}">
+    <style>
+        .user-info { color: #e0d0ff; font-weight: bold; }
+        .nav-divider { color: #888; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation" style="font-size: 18px; padding: 15px 0;">
+            <a href="{% url 'home' %}">Главная</a>
+            <span class="nav-divider">|</span>
+            <a href="{% url 'about' %}">О нас</a>
+            <span class="nav-divider">|</span>
+            <a href="{% url 'course_list' %}">Курсы</a>
+            <span class="nav-divider">|</span>
+            <a href="{% url 'student_list' %}">Студенты</a>
+            <span class="nav-divider">|</span>
+            <a href="{% url 'feedback' %}">Обратная связь</a>
+
+            <!-- === Правая часть: аутентификация === -->
+            <div style="float: right;">
+                {% if user.is_authenticated %}
+                    <span class="user-info">
+                        Привет, {{ user.first_name|default:user.username }}!
+                    </span>
+                    <span class="nav-divider">|</span>
+                    <a href="{% url 'dashboard' %}">Личный кабинет</a>
+                    <span class="nav-divider">|</span>
+                    <a href="{% url 'profile' %}">Профиль</a>
+
+                    {% if user.is_staff %}
+                        <span class="nav-divider">|</span>
+                        <a href="/admin/" style="color: #ff6b6b; font-weight: bold;">Админка</a>
+                    {% endif %}
+
+                    {% comment %} Опционально: если хочешь отдельные дашборды {% endcomment %}
+                    {% comment %}
+                    {% if user.profile.role == 'TEACHER' %}
+                        <span class="nav-divider">|</span>
+                        <a href="{% url 'teacher_dashboard' %}">Преподаватель</a>
+                    {% endif %}
+                    {% endcomment %}
+
+                    <span class="nav-divider">|</span>
+                    <a href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Вход</a>
+                    <span class="nav-divider">|</span>
+                    <a href="{% url 'register' %}">Регистрация</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-heading">{% block heading %}{% endblock %}</h1>
+
+        {% if messages %}
+            <div class="messages" style="margin: 20px 0; text-align: center;">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}"
+                         style="padding: 10px; margin: 5px; border-radius: 8px;
+                                background: {% if message.tags == 'error' %}#ff6b6b{% elif message.tags == 'success' %}#51cf66{% else %}#9775fa{% endif %};
+                                color: white; display: inline-block;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 FEFU Web Lab — Лабораторная работа №4 (Аутентификация и авторизация)</p>
+    </footer>
+</body>
+</html>

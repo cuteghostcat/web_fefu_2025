@@ -1,0 +1,19 @@
+{% extends 'fefu_lab/base.html' %}
+{% block title %}Администратор{% endblock %}
+{% block heading %}Панель администратора{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin: 50px 0;">
+    <h2 style="color: #ff6b6b;">Админ-панель</h2>
+    <p>Добро пожаловать, {{ user.get_full_name }}!</p>
+
+    <div style="margin: 40px 0;">
+        <a href="/admin/" style="display: inline-block; background: #ff6b6b; color: white; padding: 20px 50px; font-size: 24px; border-radius: 12px; text-decoration: none; margin: 0 20px;">
+            Django Admin
+        </a>
+        <a href="{% url 'student_list' %}" style="display: inline-block; background: #9775fa; color: white; padding: 20px 50px; font-size: 24px; border-radius: 12px; text-decoration: none; margin: 0 20px;">
+            Все студенты
+        </a>
+    </div>
+</div>
+{% endblock %}

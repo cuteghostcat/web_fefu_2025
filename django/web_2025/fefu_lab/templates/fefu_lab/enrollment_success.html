@@ -1,0 +1,11 @@
+{% extends 'fefu_lab/base.html' %}
+
+{% block title %}Успешная запись{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1>Запись успешна!</h1>
+        <p>Вы успешно записаны на курс. Спасибо!</p>
+        <a href="{% url 'home' %}">Вернуться на главную</a>
+    </div>
+{% endblock %}

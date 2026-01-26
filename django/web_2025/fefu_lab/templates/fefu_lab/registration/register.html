@@ -1,0 +1,42 @@
+{% extends 'fefu_lab/base.html' %}
+{% block title %}Регистрация{% endblock %}
+{% block heading %}Создание аккаунта{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 40px auto; background: rgba(120, 70, 180, 0.4); padding: 30px; border-radius: 16px;">
+    <h2 style="text-align: center; color: #e0d0ff; margin-bottom: 30px;">Регистрация нового пользователя</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="display: grid; gap: 15px;">
+            {{ form.username.label_tag }} {{ form.username }}
+            {{ form.first_name.label_tag }} {{ form.first_name }}
+            {{ form.last_name.label_tag }} {{ form.last_name }}
+            {{ form.email.label_tag }} {{ form.email }}
+            {{ form.phone.label_tag }} {{ form.phone }}
+            {{ form.faculty.label_tag }} {{ form.faculty }}
+            {{ form.password1.label_tag }} {{ form.password1 }}
+            {{ form.password2.label_tag }} {{ form.password2 }}
+        </div>
+
+        {% if form.errors %}
+            <div style="background: #ff6b6b; color: white; padding: 10px; border-radius: 8px; margin: 20px 0;">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}{{ error }}<br>{% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div style="text-align: center; margin-top: 25px;">
+            <button type="submit"
+                    style="background: #51cf66; color: white; padding: 14px 50px; font-size: 20px; border: none; border-radius: 8px; cursor: pointer;">
+                Зарегистрироваться
+            </button>
+        </div>
+    </form>
+
+    <p style="text-align: center; margin-top: 20px;">
+        Уже есть аккаунт? <a href="{% url 'login' %}" style="color: #9775fa;">Войти</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'fefu_lab/base.html' %}
+
+{% block title %}Профиль студента: {{ student.full_name }}{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h1>Профиль: {{ student.full_name }}</h1>
+    <p>Email: {{ student.email }}</p>
+    <p>Факультет: {{ student.get_faculty_display }}</p>
+    <p>Дата рождения: {% if student.birth_date %}{{ student.birth_date }}{% else %}Не указана{% endif %}</p>
+</div>
+{% endblock %}

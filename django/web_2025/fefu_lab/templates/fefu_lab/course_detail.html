@@ -1,0 +1,12 @@
+{% extends 'fefu_lab/base.html' %}
+
+{% block title %}Курс: {{ course.title }}{% endblock %}
+
+{% block content %}
+<h1>Курс: {{ course.title }}</h1>
+<p>Описание: {{ course.description }}</p>
+<p>Продолжительность: {{ course.duration }} часов</p>
+<p>Преподаватель: {% if course.instructor %}{{ course.instructor.full_name }}{% else %}Не назначен{% endif %}</p>
+<p>Уровень: {{ course.get_level_display }}</p>
+<a href="{% url 'enroll_course' course.slug %}">Записаться</a>
+{% endblock %}
