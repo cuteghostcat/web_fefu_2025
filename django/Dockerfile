@@ -4,7 +4,7 @@ FROM python:3.11 as builder
 WORKDIR /app
 
 # Копируем requirements
-COPY ../requirements/prod.txt /app/requirements.txt  
+COPY requirements/prod.txt /app/requirements.txt  
 
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
@@ -14,7 +14,7 @@ COPY . /app/
 
 # Собираем статические файлы 
 ENV DJANGO_SETTINGS_MODULE=web_2025.settings
-RUN python manage.py collectstatic --noinput
+RUN python web_2025/manage.py collectstatic --noinput
 
 # Этап 2: Production (минимальный образ)
 FROM python:3.11-slim
